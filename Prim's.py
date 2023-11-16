@@ -12,12 +12,20 @@ class undirected_graph:
         self.vertices[origin][destination] = cost
 
 def findMinimumEdgeThatConnectsVisitedToUnvisited(visited, graph):
+    minEdge = (-1, -1)
+    minEdgeCost = -1
     for i in range(len(visited)):
-        if(visited[i]): # if current vertex has been visited
+        if(visited[i]): # if I have a starting point
+            for j in range(len(graph[i])):
+                connection = graph[i][j]
+                if connection != -1 and not visited[j] and (connection < graph[minEdge[0]][minEdge[1]] or minEdge == -1):
+                    minEdge = 
+                    
+
+            
 
 
-
-    return (0,0)
+    return (0,0) # (Origin, Destination)
 
 def prims(graph):
     mst = {""}
@@ -30,6 +38,8 @@ def prims(graph):
         edge = findMinimumEdgeThatConnectsVisitedToUnvisited(visited, graph)
         mst.add(edge)
         visited[current_vertex] = True
+
+    return mst
 
 #really annoying to create a graph
 network = undirected_graph(5)
