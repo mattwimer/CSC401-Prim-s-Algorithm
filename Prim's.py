@@ -17,7 +17,7 @@ def findMinimumEdgeThatConnectsVisitedToUnvisited(visited, graph):
             minCost = -1
             bestEdge = -1
             for j in range(len(graph[i])):
-                if visited[j] and (graph[i][j] < minCost or minCost == -1):
+                if visited[j] and (graph[i][j] < minCost or (graph[i][j] != -1 and minCost == -1)):
                     minCost = graph[i][j]
                     bestEdge = j
             return (i, bestEdge)
@@ -41,23 +41,23 @@ def prims(graph):
     return mst
 
 #really annoying to create a graph
-# network1 = undirected_graph(4)
+network1 = undirected_graph(4)
 
-# # (origin, destination, cost)
-# for edge in [(0,1,3), (0,2,1), (1,2,2), (2,3,4)]:
-#     network1.add_edge(*edge)
+# (origin, destination, cost)
+for edge in [(0,1,3), (0,2,1), (1,2,2), (2,3,4)]:
+    network1.add_edge(*edge)
 
-# print(prims(network1))
+print(prims(network1))
 
-# network2 = undirected_graph(4)
+network2 = undirected_graph(4)
 
-# # (origin, destination, cost)
-# #                     vvv same cost vvv
-# for edge in [(0,1,3), (0,2,2), (1,2,2), (2,3,4)]:
-#     #                 ^^^ same cost ^^^
-#     network2.add_edge(*edge)
+# (origin, destination, cost)
+#                     vvv same cost vvv
+for edge in [(0,1,3), (0,2,2), (1,2,2), (2,3,4)]:
+    #                 ^^^ same cost ^^^
+    network2.add_edge(*edge)
 
-# print(prims(network2))
+print(prims(network2))
 
 network3 = undirected_graph(4)
 
